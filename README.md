@@ -22,14 +22,11 @@ for every valid position. Because the kernel has no padding, the 8×8 input prod
 |-------------|-------|-------------------------------------------------------------------------------|
 | `indata`    | 64 B  | The 8×8 input matrix (row-major). Values are 0&ndash;15 so each fits in one hex digit. |
 | `outdata`   | 36 B  | The 6×6 output matrix.                                                        |
-| `intext`    | 32 B  | Header string printed before the input matrix.                                |
-| `outext`    | 42 B  | Header string printed before the output matrix.                               |
 
-> The input values are seeded from my university ID **20210268** &mdash; row 1 literally spells out the ID digits (`2,0,2,1,0,2,6,8`), and subsequent rows are scaled patterns. A few cells were trimmed below 16 so every element fits in a single hex nibble for clean printing.
 
 ## Procedures
 
-| Procedure          | Job                                                                        |
+| Function          | Job                                                                        |
 |--------------------|----------------------------------------------------------------------------|
 | `print_in_text`    | Prints the header `"The original input in hexadecimal"`.                   |
 | `print_out_text`   | Prints the header `"The output after convolution in hexadecimal"`.         |
@@ -44,7 +41,7 @@ The print routines decide between `'0'..'9'` and `'A'..'F'` with a simple `CMP D
 ```
 The original input in hexadecimal
 20210268
-40402-CF              <- (large values written as F to stay single-nibble)
+40402-CF          
 60603067A
 8080804024
 A0A050A006
@@ -61,8 +58,6 @@ The output after convolution in hexadecimal
 666779
 ```
 
-> Exact byte values depend on the integer-divide rounding in `DIV BL`; the table above shows the rough shape.
-
 ## Files
 
 ```
@@ -75,21 +70,13 @@ The output after convolution in hexadecimal
 
 ## Assembling and running
 
-Designed to be assembled with [**emu8086**](https://emu8086.en.lo4d.com/) (the easiest path on Windows):
+Designed to be assembled with [**emu8086**](https://emu8086.en.lo4d.com/) :
 
 1. Open emu8086.
 2. **File → Open** → `convolution.asm`.
 3. Click **Compile**, then **Emulate**.
 4. Press **Run** &mdash; the input matrix is printed, followed by the convolution output, both in hex.
 
-Or with **TASM / MASM** + **DOSBox**:
-
-```bat
-REM inside DOSBox
-TASM convolution.asm
-TLINK convolution.obj
-convolution.exe
-```
 
 ## Course context
 
