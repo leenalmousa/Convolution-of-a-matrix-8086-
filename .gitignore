@@ -1,0 +1,14 @@
+# Assembler build artifacts
+*.obj
+*.exe
+*.com
+*.lst
+*.map
+*.bak
+
+# Editor / OS
+.vscode/
+.idea/
+*~
+.DS_Store
+Thumbs.db
