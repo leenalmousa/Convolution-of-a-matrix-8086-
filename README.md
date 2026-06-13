@@ -1,6 +1,6 @@
 # 2D Convolution on an 8×8 Matrix &mdash; 8086 Assembly
 
-A pure **8086 assembly** program that runs a **3×3 averaging filter** (one of the simplest image-processing kernels) over an **8×8 input matrix** and prints both the input and the resulting **6×6 output** to the screen in hexadecimal. The input matrix is seeded from my university ID.
+A pure **8086 assembly** program that runs a **3×3 averaging filter** (one of the simplest image-processing kernels) over an **8×8 input matrix** and prints both the input and the resulting **6×6 output** to the screen in hexadecimal. 
 
 [![Assembly](https://img.shields.io/badge/Language-8086%20Assembly-525252?logo=assemblyscript&logoColor=white)](convolution.asm)
 [![Assembler](https://img.shields.io/badge/Tested%20with-emu8086-7B68EE)](https://emu8086.en.lo4d.com/)
